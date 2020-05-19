@@ -30,7 +30,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.loginPage("/login-page")
 				.loginProcessingUrl("/authenticate-user")
-				.permitAll();
+				.permitAll()
+				.and()
+				.logout().permitAll();
 	}
 	
 	
