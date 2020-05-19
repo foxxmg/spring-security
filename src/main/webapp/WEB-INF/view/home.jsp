@@ -7,6 +7,6 @@
 <title>Spring Security - Home</title>
 </head>
 <body>
-<h2>Welcome to the foxxmg Software Development organisation.</h2>
+<h2>Welcome to the Homepage.</h2>
 </body>
 </html>
