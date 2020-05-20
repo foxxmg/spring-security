@@ -16,9 +16,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		// add our users for in-memory authentication
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		auth.inMemoryAuthentication()
-				.withUser(users.username("farai").password("1234").roles("MANAGER"))
+				.withUser(users.username("farai").password("1234").roles("MANAGER","EMPLOYEE"))
 				.withUser(users.username("john").password("1234").roles("EMPLOYEE"))
-				.withUser(users.username("lisa").password("1234").roles("ADMINISTRATOR"));
+				.withUser(users.username("lisa").password("1234").roles("ADMINISTRATOR","EMPLOYEE"));
 	}
 
 	@Override
@@ -30,7 +30,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.loginPage("/login-page")
 				.loginProcessingUrl("/authenticate-user")
-				.permitAll();
+				.permitAll()
+				.and()
+				.logout().permitAll();
 	}
 	
 	
