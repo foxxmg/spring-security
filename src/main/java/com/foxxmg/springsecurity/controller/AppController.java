@@ -10,4 +10,15 @@ public class AppController {
 	public String showHome(){
 		return "home";
 	}
+	
+	//add Request Mapping for leaders
+	@GetMapping("/leaders")
+	public String showLeaders(){
+		return "leaders";
+	}
+	
+	@GetMapping("/systems")
+	public String showSystems(){
+		return "systems";
+	}
 }

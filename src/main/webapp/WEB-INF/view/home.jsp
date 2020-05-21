@@ -16,6 +16,18 @@
 			<br><br>
 			Roles: <security:authentication property="principal.authorities"/>
 		</p>
+		
+		<!-- Link for leaders -->
+		<p>
+			<a href="${pageContext.request.contextPath}/leaders">Leadership</a>
+			(Only for managers)
+		</p>
+		<hr>
+		<!-- Link for admins -->
+		<p>
+			<a href="${pageContext.request.contextPath}/systems">Admin Page</a>
+			(Only for Administrators)
+		</p>
 		<hr>
 		<form:form action="${pageContext.request.contextPath}/logout" method="POST">
 			<input type="submit" value="Logout" />
