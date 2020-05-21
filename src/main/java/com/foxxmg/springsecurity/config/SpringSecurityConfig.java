@@ -33,7 +33,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginProcessingUrl("/authenticate-user")
 				.permitAll()
 				.and()
-				.logout().permitAll();
+				.logout().permitAll()
+				.and()
+				.exceptionHandling().accessDeniedPage("/access-denied");
 	}
 	
 	
