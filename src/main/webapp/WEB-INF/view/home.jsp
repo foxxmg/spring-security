@@ -17,17 +17,23 @@
 			Roles: <security:authentication property="principal.authorities"/>
 		</p>
 		
-		<!-- Link for leaders -->
-		<p>
-			<a href="${pageContext.request.contextPath}/leaders">Leadership</a>
-			(Only for managers)
-		</p>
-		<hr>
-		<!-- Link for admins -->
-		<p>
-			<a href="${pageContext.request.contextPath}/systems">Admin Page</a>
-			(Only for Administrators)
-		</p>
+		
+		<security:authorize access="hasRole('MANAGER')"> <!-- Show content in this tag only to managers -->
+			<hr>
+			<!-- Link for leaders -->
+			<p>
+				<a href="${pageContext.request.contextPath}/leaders">Leadership</a>
+				(Only for managers)
+			</p>
+		</security:authorize>
+		
+		<security:authorize access="hasRole('ADMINISTRATOR')">
+			<!-- Link for admins -->
+			<p>
+				<a href="${pageContext.request.contextPath}/systems">Admin Page</a>
+				(Only for Administrators)
+			</p>
+		</security:authorize>
 		<hr>
 		<form:form action="${pageContext.request.contextPath}/logout" method="POST">
 			<input type="submit" value="Logout" />
