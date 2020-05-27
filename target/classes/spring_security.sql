@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS `spring_security`;
+DROP DATABASE  IF EXISTS `spring_security_bcrypt`;
 
-CREATE DATABASE  IF NOT EXISTS `spring_security`;
-USE `spring_security`;
+CREATE DATABASE  IF NOT EXISTS `spring_security_bcrypt`;
+USE `spring_security_bcrypt`;
 
 --
 -- Table structure for table `users`
@@ -10,20 +10,25 @@ USE `spring_security`;
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` char(68) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Inserting data for table `users`
+-- Dumping data for table `users`
+--
+-- NOTE: The passwords are encrypted using BCrypt
+--
+--
+-- Default passwords here are: 1234
 --
 
 INSERT INTO `users` 
 VALUES 
-('farai','{noop}1234',1),
-('john','{noop}1234',1),
-('lisa','{noop}1234',1);
+('farai','{bcrypt}$2a$04$AkkqfI2D3rBMv0zpbuFB/e5ukd299mofI.DEKgR/iJnD5Ofy7v8Ti',1),
+('john','{bcrypt}$2a$04$AkkqfI2D3rBMv0zpbuFB/e5ukd299mofI.DEKgR/iJnD5Ofy7v8Ti',1),
+('lisa','{bcrypt}$2a$04$AkkqfI2D3rBMv0zpbuFB/e5ukd299mofI.DEKgR/iJnD5Ofy7v8Ti',1);
 
 
 --
@@ -39,7 +44,7 @@ CREATE TABLE `authorities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Inserting data for table `authorities`
+-- Dumping data for table `authorities`
 --
 
 INSERT INTO `authorities` 
